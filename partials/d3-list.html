@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      Search: <input ng-model="query">
+      Sort by:
+      <select ng-model="orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="age">Newest</option>
+      </select>
+
+    </div>
+    <div class="Searches">
+      <!--Body content-->
+        <table>
+          <thead>
+            <th ng-repeat="col in Columns" class="col-md-{{Columns.length}}">{{col}}</th>
+          </thead>
+          <tbody>
+            <tr data-ng-repeat="month in MonthData | orderBy:Date">
+              <td data-ng-repeat="col in Columns" class="col-md-{{Columns.length}}">
+                <a ng-if="col=='Month'" href="#/d3/{{month[col]}}">
+                  {{month[col]}}
+                </a>
+                <span ng-if="col!='Month'">{{month[col]}}</span>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <div  style="border:1px solid gray;width:400px;padding:3px;text-align:center;">
+        <input type="range" min="0" max="10" ng-model="range"
+        <p>{{range}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<a href="#/d3"><< Back to list <<</a>
+<div>
+  this is month {{monthId}}
+  <select ng-options="m.Month as m.Month for m in MonthData" ng-model="selectedM" ng-change="changeMonth()"></select>
+
+  graph = {{hoverGraphMonth}}
+</div>
+<div class="Searches table-bordered">
+  <div class="pull-left grid-data">
+  <table cellpadding="3" cellspacing="3">
+    <thead>
+      <th ng-repeat="col in Columns" class="">{{col}}</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="month in DataMonth">
+        <td ng-repeat="col in Columns" ng-mouseover="mouseOver(month,col)" class="{{ month['hover'] ? 'borded' : '' }}">
+            {{month[col]}}
+        </td>
+      </tr>
+     </tbody>
+  </table>
+    <!--<donut-chart data="[32,41,11,5,60]"></donut-chart>
+    ng-mouseenter="this.overTD = col != 'Date'"
+            ng-mouseleave="this.overTD=false"
+
+    -->
+  </div>
+  <div class="col-md-6 sm-font">
+    <stack-graph  width="800" height="560" data="'DataMonth'" databold="'lastSelected'"></stack-graph>
+  </div>
+</div>
