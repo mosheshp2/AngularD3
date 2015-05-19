@@ -40,7 +40,7 @@ phonecatApp.config(['$routeProvider',
               controller: 'D3DetailCtrl'
             }).
       otherwise({
-        redirectTo: '/phones'
+        redirectTo: '/d3'
       });
   }]);
 
