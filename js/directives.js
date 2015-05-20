@@ -70,6 +70,42 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
                       .append("g")
                         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+
+					var popupPoint = [100,200];
+					var popupSize = 80;
+					var legHeight = 30;
+					var poly=[
+						{ x : popupPoint[0] - popupSize / 2, y : popupPoint[0] - popupSize - legHeight},
+						{ x : popupPoint[0] + popupSize / 2, y : popupPoint[0] - popupSize - legHeight},
+						{ x : popupPoint[0] + popupSize / 2, y : popupPoint[0] - legHeight},
+                        { x : popupPoint[0] , y : popupPoint[0]},
+                        { x : popupPoint[0] - popupSize / 2, y : popupPoint[0] - legHeight}
+					];
+
+					var g = svg.append("g");
+//TODOO: set position to g, and move all popup container according to the g
+					var popup =g.selectAll("polygon")
+								.data([poly]).enter()
+								.append("polygon")
+								 .attr("points",function(d) {
+                                        return d.map(function(d) { return [d.x,d.y].join(","); }).join(" ");
+                                 })
+                                 .style({
+											'stroke':'black',
+											'strokeDasharray':'5,5',
+											"strokeWidth":2,
+											fill:'white'
+										});
+
+					g.append("text")
+						.attr('y', 10)
+						.attr('x', 10)
+						.style('fill','steelblue')
+						.text("Popup");
+
+//					popup.style('display','none');
+
+
 					myDirective.clearHover = function(){
 						if(myDirective.state)
 								myDirective.state.style({
@@ -164,7 +200,10 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
 							 .attr("width", x.rangeBand())
 							  .attr("y", function(d) { return height; })
 							  .attr("height", function(d) { return 0; })
-							  .style("fill", function(d) { return color(d.name); });
+							  .style("fill", function(d) { return color(d.name); })
+							  .on('click',function(e){
+
+							  });
 
  						 state.transition()
  						 	  .delay(function(d,i){ return i * 50; })
