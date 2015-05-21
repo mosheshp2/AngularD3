@@ -69,6 +69,18 @@ d3Controllers.controller('D3DetailCtrl',['$scope','$routeParams','$location','$r
                     col:col
                 };
         };
+        $scope.lastClick={};
+        var lastClick = {};
+        $scope.clickRow = function(month,col){
+            $scope.lastClick={
+                key:month.Date,
+                col:col
+            };
+            lastClick.openedPopup=false;
+            lastClick = month;
+            lastClick.openedPopup=true;
+        };
+
         $scope.hoverGraphMonth={};
         var mon;
         $scope.$on('hoverGraph',function(e,hoverData){

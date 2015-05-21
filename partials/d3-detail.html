@@ -12,16 +12,14 @@
       <th ng-repeat="col in Columns" class="">{{col}}</th>
     </thead>
     <tbody>
-      <tr ng-repeat="month in DataMonth">
-        <td ng-repeat="col in Columns" ng-mouseover="mouseOver(month,col)" class="{{ month['hover'] ? 'borded' : '' }}">
+      <tr ng-repeat="month in DataMonth" class="{{ month['openedPopup'] ? 'opened' : ''}}">
+        <td ng-repeat="col in Columns" ng-mouseover="mouseOver(month,col)" ng-click="clickRow(month,col)" class="{{ month['hover'] ? 'borded' : '' }}">
             {{month[col]}}
         </td>
       </tr>
      </tbody>
   </table>
     <!--<donut-chart data="[32,41,11,5,60]"></donut-chart>
-    ng-mouseenter="this.overTD = col != 'Date'"
-            ng-mouseleave="this.overTD=false"
 
     -->
   </div>

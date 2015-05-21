@@ -283,7 +283,18 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
 							};
 
 					});
+					$scope.$parent.$watch('lastClick',function(newVal,oldVal){
+						if(newVal!=null &&newVal.key){ 
+						myDirective.gridMarked = svg.selectAll("g")
+							.filter(function(d){
+								return d3.select(this).classed('g') && d != null && d[KEY_COLUMN] == newVal.key;
+							}).selectAll("rect").filter(function(d){
+								return d.name == newVal.col;
+							});
+						myDirective.openPopup(myDirective.gridMarked,newVal.col);
+						}
 
+					});
 					$scope.$parent.$watch($scope.databold,function(newVal,oldVal){
 						if(newVal == null) return;
                     	var month = newVal;

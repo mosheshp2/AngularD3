@@ -33,6 +33,9 @@ body {
 .grid-data TD.borded {
   border: 1px solid blue;
 }
+.grid-data tr.opened TD {
+  border: 1px solid red;
+}
 .bold{
   font-weight:500;
 }
@@ -41,7 +44,7 @@ body {
   border: 1px solid white;
 }
 .grid-data table tr:hover td{
-  border: 1px solid red;
+  /*border: 1px solid red;*/
 }
 .grid-data table tr td:hover {
   font-weight:500;
