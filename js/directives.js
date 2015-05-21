@@ -71,39 +71,7 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
                         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-					var popupPoint = [100,200];
-					var popupSize = 80;
-					var legHeight = 30;
-					var poly=[
-						{ x : popupPoint[0] - popupSize / 2, y : popupPoint[0] - popupSize - legHeight},
-						{ x : popupPoint[0] + popupSize / 2, y : popupPoint[0] - popupSize - legHeight},
-						{ x : popupPoint[0] + popupSize / 2, y : popupPoint[0] - legHeight},
-                        { x : popupPoint[0] , y : popupPoint[0]},
-                        { x : popupPoint[0] - popupSize / 2, y : popupPoint[0] - legHeight}
-					];
 
-					var g = svg.append("g");
-//TODOO: set position to g, and move all popup container according to the g
-					var popup =g.selectAll("polygon")
-								.data([poly]).enter()
-								.append("polygon")
-								 .attr("points",function(d) {
-                                        return d.map(function(d) { return [d.x,d.y].join(","); }).join(" ");
-                                 })
-                                 .style({
-											'stroke':'black',
-											'strokeDasharray':'5,5',
-											"strokeWidth":2,
-											fill:'white'
-										});
-
-					g.append("text")
-						.attr('y', 10)
-						.attr('x', 10)
-						.style('fill','steelblue')
-						.text("Popup");
-
-//					popup.style('display','none');
 
 
 					myDirective.clearHover = function(){
@@ -142,6 +110,7 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
 						  svg.append("g")
 							  .attr("class", "x axis")
 							   .attr("transform", "translate(0," + height + ")")
+							   .attr("y",height)
 							  .call(xAxis)
 						     .selectAll("text")
 								   .style("text-anchor", "end")
@@ -165,6 +134,8 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
 							  .data(data)
 							 .enter().append("g")
 							  .attr("class", "g")
+							  .attr("x",0)
+							  .attr("y",0)
 							  .attr("transform", function(d) { return "translate(0 ,0)"; })
 							  .on('mouseover',function(e){
 							  	  myDirective.clearHover();
@@ -202,12 +173,13 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
 							  .attr("height", function(d) { return 0; })
 							  .style("fill", function(d) { return color(d.name); })
 							  .on('click',function(e){
-
+									myDirective.openPopup(d3.select(this),e.name);
 							  });
 
  						 state.transition()
  						 	  .delay(function(d,i){ return i * 50; })
 						  	  .attr("transform", function(d) { return "translate(" + x(d[KEY_COLUMN]) + ",0)"; })
+						  	  //.attr("x",function(d){return x(d[KEY_COLUMN]);})
 						  	  .each("end", function (e, i) {
 						  	  	  d3.select(this)
 						  	  	  	.selectAll('rect')
@@ -237,6 +209,78 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
 							  .attr("dy", ".35em")
 							  .style("text-anchor", "end")
 							  .text(function(d) { return d; });
+
+							var popupPoint = [100,120];
+							var popupSize = 80;
+							var legHeight = 30;
+							var polyXY=[
+								{ x : popupPoint[0] - popupSize / 2, y : popupPoint[1] - popupSize - legHeight},
+								{ x : popupPoint[0] + popupSize / 2, y : popupPoint[1] - popupSize - legHeight},
+								{ x : popupPoint[0] + popupSize / 2, y : popupPoint[1] - legHeight},
+								{ x : popupPoint[0] , y : popupPoint[1]},
+								{ x : popupPoint[0] - popupSize / 2, y : popupPoint[1] - legHeight}
+							];
+
+							var textData = [0,20,40].map(function(d){
+								return {
+									x:  popupPoint[0] - popupSize / 2 + 10,
+									y: popupPoint[1] - popupSize - legHeight + 20 + d,
+									color: 'red',
+									text: 'Popup'
+								};
+							});
+							var gPopup = svg.append("g");
+							var popup =gPopup.selectAll("polygon")
+										.data([polyXY]).enter()
+										.append("polygon")
+										 .attr("points",function(d) {
+												return d.map(function(d) { return [d.x,d.y].join(","); }).join(" ");
+										 })
+										 .attr("opacity","0")
+										 .style({
+													'strokeDasharray':'5,5',
+													'stroke':'red',
+													fill:'white'
+												});
+
+							var popupText = gPopup.selectAll("text")
+								.data(textData).enter()
+								.append("text")
+								.attr('x', function(d){return d.x;})
+								.attr('y', function(d){return d.y;})
+								.style('fill', function(d){return d.color;})
+								.text(function(d){return d.text;})
+								.attr("opacity",0);
+
+
+							myDirective.openPopup = function(element,propName) {
+								var eData = null;
+								var eParent = element[0][0].parentNode;
+								d3.select(eParent).filter(function(d){
+									eData = d;
+									return true;
+								});
+								var text = [eData[KEY_COLUMN],propName,eData[propName]];
+								var popupText = gPopup.selectAll("text").each(function(node,i,j){
+									node.text = text[i];									
+									d3.select(this).text(text[i]);
+								});
+
+								popup.transition().duration(300)
+									.attr("opacity","1");
+								popupText.transition().duration(300)
+									.attr("opacity","1");
+
+								var x = d3.transform(d3.select(eParent).attr("transform")).translate[0];
+								var y = +element.attr("y");
+								var width = +element.attr("width");
+								var pp= {x: x - popupSize - width /2, y: y - popupSize }
+								pp.y = pp.y < -30 ? -30 : pp.y;
+								gPopup.transition()
+								 	.duration(500)
+								 	.ease("elastic")
+								 	.attr("transform","translate("+pp.x+","+pp.y+")");
+							};
 
 					});
 
