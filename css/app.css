@@ -57,6 +57,13 @@ body {
   list-style: none;
 }
 
+svg .shadow {
+    cursor:crosshair;
+    -moz-box-shadow: -5px -5px 5px #888;
+    -webkit-box-shadow: -5px -5px 5px #888;
+    box-shadow: -5px -5px 5px #888;
+}
+
 .thumb {
   float: left;
   margin: -0.5em 1em 1.5em 0;

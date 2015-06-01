@@ -165,9 +165,12 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
 							  });
 
 
-						  var rect = state.selectAll("rect")
+						  var enters = state.selectAll("rect")
 							  .data(function(d) { return d.ages; })
-							.enter().append("rect")
+							.enter();
+
+						  var rect = enters
+							.append("rect")
 							 .attr("width", x.rangeBand())
 							  .attr("y", function(d) { return height; })
 							  .attr("height", function(d) { return 0; })
@@ -175,6 +178,11 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
 							  .on('click',function(e){
 									myDirective.openPopup(d3.select(this),e.name);
 							  });
+						var tinyTexts = enters.append("text")
+								.attr("y",height)
+								.text(function(d){
+									return d.y1;//[d.name];
+								});
 
  						 state.transition()
  						 	  .delay(function(d,i){ return i * 50; })
@@ -189,6 +197,14 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
                                     .ease('elastic')
 						  	  	  	.attr("y", function(d) { return y(d.y1); })
 									.attr("height", function(d) { return y(d.y0) - y(d.y1); });
+
+								d3.select(this)
+									.selectAll('text')
+									.transition()
+									.delay(function(d,i){ return i * 10; })
+									.duration(1500)
+									.ease('elastic')
+									.attr("y", function(d) { return y(d.y1) +10; });
 						  	  });
 
 						  var legend = svg.selectAll(".legend")
@@ -211,7 +227,7 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
 							  .text(function(d) { return d; });
 
 							var popupPoint = [100,120];
-							var popupSize = 80;
+							var popupSize = 120;
 							var legHeight = 30;
 							var polyXY=[
 								{ x : popupPoint[0] - popupSize / 2, y : popupPoint[1] - popupSize - legHeight},
@@ -221,7 +237,7 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
 								{ x : popupPoint[0] - popupSize / 2, y : popupPoint[1] - legHeight}
 							];
 
-							var textData = [0,20,40].map(function(d){
+							var textData = [0,20].map(function(d){
 								return {
 									x:  popupPoint[0] - popupSize / 2 + 10,
 									y: popupPoint[1] - popupSize - legHeight + 20 + d,
@@ -229,19 +245,42 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
 									text: 'Popup'
 								};
 							});
-							var gPopup = svg.append("g");
+							var gPopup = svg.append("g")
+										 .attr("opacity","0");
 							var popup =gPopup.selectAll("polygon")
 										.data([polyXY]).enter()
 										.append("polygon")
 										 .attr("points",function(d) {
 												return d.map(function(d) { return [d.x,d.y].join(","); }).join(" ");
 										 })
-										 .attr("opacity","0")
+										 //.attr("class","shadow")
 										 .style({
 													'strokeDasharray':'5,5',
 													'stroke':'red',
 													fill:'white'
 												});
+							var circle = gPopup.append("circle")
+								.attr("cx",polyXY[0].x)
+								.attr("cy",polyXY[0].y)
+								.attr("r",10)
+								.attr("fill","red")
+								.on("click",function(e){
+									myDirective.closePopup();
+								});
+							var line = gPopup.selectAll("line")
+								.data([[-5,-5],[5,-5]]).enter()
+								.append("line")
+								.attr("x1",function(d){return polyXY[0].x+d[0];})
+								.attr("y1",function(d){return polyXY[0].y+d[1];})
+								.attr("x2",function(d){return polyXY[0].x-d[0];})
+								.attr("y2",function(d){return polyXY[0].y-d[1];})
+								.attr("width", '2')
+								.style({
+									'stroke':'black',
+									'fill':'black',
+									'strokeWidth':6
+								});
+
 
 							var popupText = gPopup.selectAll("text")
 								.data(textData).enter()
@@ -249,8 +288,11 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
 								.attr('x', function(d){return d.x;})
 								.attr('y', function(d){return d.y;})
 								.style('fill', function(d){return d.color;})
-								.text(function(d){return d.text;})
-								.attr("opacity",0);
+								.text(function(d){return d.text;});
+
+							var sizePie = 100;
+							var gPie = gPopup.append('g')
+									.attr('transform', 'translate(' +(sizePie )+ ',' +(sizePie -40)+ ')');
 
 
 							myDirective.openPopup = function(element,propName) {
@@ -260,26 +302,59 @@ var myDirective = d3Directives.directive('stackGraph',[function(){
 									eData = d;
 									return true;
 								});
-								var text = [eData[KEY_COLUMN],propName,eData[propName]];
+								var text = [eData[KEY_COLUMN],propName+ ' = '+ eData[propName]];
 								var popupText = gPopup.selectAll("text").each(function(node,i,j){
 									node.text = text[i];									
 									d3.select(this).text(text[i]);
+
 								});
+								
+								var Columns =  Object.getOwnPropertyNames(eData);
+								var dataArray=[], dataKeyArray=[];
+								for(var i in Columns){
+									if(angular.isNumber(eData[Columns[i]] && Columns[i]!="total") ){
+										dataArray.push(eData[Columns[i]]);
+										dataKeyArray.push({
+											key:Columns[i],
+											d:eData[Columns[i]]
+										});
+									}	
+								}
+								dataArray=[eData.WsSearches,eData.TotalSearches,eData.IpSearches,eData.Books];
 
-								popup.transition().duration(300)
-									.attr("opacity","1");
-								popupText.transition().duration(300)
-									.attr("opacity","1");
+								var pie = d3.layout.pie();//.sort(null);
+								var arc = d3.svg.arc()
+									.outerRadius(sizePie / 2 *0.9)
+									.innerRadius(sizePie / 2 *0.3);
+								
+								var pieData = pie(dataArray);
+								gPie.selectAll("path").remove();
+								gPie.selectAll('path').data(pieData)
+									.enter().append('path')
+									.style('stroke','white')
+									.attr('d',function(d){
+										 var myArc = arc(d);
+										 return myArc;
+									})
+									.attr('fill',function(d, i){ return color(i); });
 
-								var x = d3.transform(d3.select(eParent).attr("transform")).translate[0];
+
+ 								var x = d3.transform(d3.select(eParent).attr("transform")).translate[0];
 								var y = +element.attr("y");
 								var width = +element.attr("width");
-								var pp= {x: x - popupSize - width /2, y: y - popupSize }
+								var pp= {x: x-20 - popupSize /2 - width /2, y: y - popupSize +20}
 								pp.y = pp.y < -30 ? -30 : pp.y;
+
 								gPopup.transition()
 								 	.duration(500)
 								 	.ease("elastic")
-								 	.attr("transform","translate("+pp.x+","+pp.y+")");
+								 	.attr("transform","translate("+pp.x+","+pp.y+")")
+								 	.attr("opacity","1");
+
+							};
+							myDirective.closePopup=function(){
+								gPopup.transition().duration(300)
+									.attr("opacity",0);
 							};
 
 					});
