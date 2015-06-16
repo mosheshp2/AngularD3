@@ -28,11 +28,16 @@ phonecatControllers.controller('AtBashCtrl',['$scope', '$window',
         var atB = $window.localStorage.getItem("atBash") ;
         $scope.atBashData = atB ? atB.split(',') : [];
 
+
         $scope.keyPressed = function(e){
             if(e.keyCode == 13 && $scope.input){
                 addData($scope.input);
             }
         };
+        $scope.addItem=function(){
+            if($scope.input)
+                addData($scope.input);
+        }
         $scope.remove=function(word){
             var indexOf=$scope.atBashData.indexOf(word);
             if(indexOf > -1){

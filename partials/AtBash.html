@@ -11,11 +11,12 @@
     .dTitle{
         color:red;
         font-weight: bold;
+        cursor: pointer;
     }
 </style>
 <div class="box">
     <p>מילון אתב"ש</p>
-    <input ng-model="input" ng-keypress="keyPressed($event)"/>
+    <input ng-model="input" ng-keypress="keyPressed($event)"/><span class="dTitle" ng-click="addItem()"> + </span>
     <div class="dTitle">
         אתבש: {{input | atBash}}
     </div>
