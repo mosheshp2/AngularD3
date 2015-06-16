@@ -21,9 +21,9 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Ph
     }
   }]);
 
-phonecatControllers.controller('AtBashCtrl',['$scope', '$window',
-    function($scope, $window) {
-
+phonecatControllers.controller('AtBashCtrl',['$scope', '$window','$rootScope',
+    function($scope, $window,$root) {
+        $root.title="מילון אתב\"ש";
 
         var atB = $window.localStorage.getItem("atBash") ;
         $scope.atBashData = atB ? atB.split(',') : [];
@@ -37,7 +37,7 @@ phonecatControllers.controller('AtBashCtrl',['$scope', '$window',
         $scope.addItem=function(){
             if($scope.input)
                 addData($scope.input);
-        }
+            }
         $scope.remove=function(word){
             var indexOf=$scope.atBashData.indexOf(word);
             if(indexOf > -1){
@@ -49,6 +49,7 @@ phonecatControllers.controller('AtBashCtrl',['$scope', '$window',
             if($scope.atBashData.indexOf(word) == -1)            {
                 $scope.atBashData.push(word);
                 $window.localStorage.setItem("atBash",$scope.atBashData);
+                $scope.input = '';
             }
         };
 
