@@ -38,8 +38,12 @@ phonecatApp.config(['$routeProvider',
             when('/d3/:d3Id', {
               templateUrl: 'partials/d3-detail.html',
               controller: 'D3DetailCtrl'
-            }).
-      otherwise({
+            })
+        .when('/AtBash/',{
+            templateUrl: 'partials/AtBash.html',
+            controller: ''
+        })
+      .otherwise({
         redirectTo: '/d3'
       });
   }]);
