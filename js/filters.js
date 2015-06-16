@@ -31,3 +31,18 @@ filters.filter('atBash', function () {
         return result;
       };
     });
+
+filters.filter('gimatry', function () {
+  return function (input) {
+    var helper=[1,2,3,4,5,6,7,8,9,10,20,20,30,40,40,50,50,60,70,80,80,90,90,100,200,300,400];
+    var result = 0;
+    if (!input) return result;
+    for(var i = 0; i < input.length; i++){
+      var charCode = input[i].charCodeAt(0);
+      if(charCode > 1487 && charCode < 1515){
+        result += helper[charCode - 1488];
+      }
+    }
+    return result;
+  };
+});

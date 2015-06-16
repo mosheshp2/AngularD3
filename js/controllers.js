@@ -23,8 +23,12 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Ph
 
 phonecatControllers.controller('AtBashCtrl',['$scope', '$window','$rootScope',
     function($scope, $window,$root) {
-        $root.title="׳׳™׳׳•׳ ׳׳×׳‘\"׳©";
-
+        $root.title='מילון אתב"ש';
+        $scope.translate={
+            milonAtBash: 'מילון אתב"ש',
+            gimatry:'גימטריא',
+            atBash:'אתבש'
+        };
         var atB = $window.localStorage.getItem("atBash") ;
         $scope.atBashData = atB ? atB.split(',') : [];
 
@@ -47,7 +51,7 @@ phonecatControllers.controller('AtBashCtrl',['$scope', '$window','$rootScope',
         }
         function addData(word){
             if($scope.atBashData.indexOf(word) == -1)            {
-                $scope.atBashData.push(word);
+                $scope.atBashData.unshift(word);
                 $window.localStorage.setItem("atBash",$scope.atBashData);
                 $scope.input = '';
             }

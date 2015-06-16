@@ -1,4 +1,4 @@
-<style>
+﻿<style>
     body {
         direction: rtl;
         font-size:20pt;
@@ -13,14 +13,18 @@
         font-weight: bold;
         cursor: pointer;
     }
+.w120{
+	width:105px;
+	display:inline-block;
+}
 </style>
 <div class="box">
-    <p>מילון אתב"ש</p>
+    <p>מילון אתב"ש גימטריא</p>
     <input ng-model="input" ng-keypress="keyPressed($event)"/><span class="dTitle" ng-click="addItem()"> + </span>
     <div class="dTitle">
-        אתבש: {{input | atBash}}
+ 	גימטריא: <span class="w120">{{ input | gimatry}}</span> |  אתב"ש: {{input | atBash}}   | 
     </div>
     <div ng-repeat="word in atBashData">
-        <p ng-click="remove(word)">{{word}} = {{word | atBash}}<span class="dTitle"> X </span></p>
+        <p ng-click="remove(word)">{{word}} = <span class="w120">{{word | gimatry}}</span>| {{word | atBash}}<span class="dTitle"> X </span></p>
     </div>
 </div>
