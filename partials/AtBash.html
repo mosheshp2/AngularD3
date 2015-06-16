@@ -1,2 +1,24 @@
-<input ng-model="input" />
-<div>AtBashed: {{input | atBash}}</div>
+<style>
+    body {
+        direction: rtl;
+        font-size:20pt;
+        font-family: arial;
+    }
+    .box{
+        margin-right: 30px;
+        text-align: center;
+    }
+    .dTitle{
+        color:red;
+        font-weight: bold;
+    }
+</style>
+<div class="box">
+    <input ng-model="input" ng-keypress="keyPressed($event)"/>
+    <div class="dTitle">
+        אתבש: {{input | atBash}}
+    </div>
+    <div ng-repeat="word in atBashData">
+        <p ng-click="remove(word)">{{word}} = {{word | atBash}}<span class="dTitle"> X </span></p>
+    </div>
+</div>

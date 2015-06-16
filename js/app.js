@@ -41,7 +41,7 @@ phonecatApp.config(['$routeProvider',
             })
         .when('/AtBash/',{
             templateUrl: 'partials/AtBash.html',
-            controller: ''
+            controller: 'AtBashCtrl'
         })
       .otherwise({
         redirectTo: '/d3'

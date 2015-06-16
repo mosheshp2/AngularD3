@@ -21,7 +21,37 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Ph
     }
   }]);
 
+phonecatControllers.controller('AtBashCtrl',['$scope', '$window',
+    function($scope, $window) {
+
+
+        var atB = $window.localStorage.getItem("atBash") ;
+        $scope.atBashData = atB ? atB.split(',') : [];
+
+        $scope.keyPressed = function(e){
+            if(e.keyCode == 13 && $scope.input){
+                addData($scope.input);
+            }
+        };
+        $scope.remove=function(word){
+            var indexOf=$scope.atBashData.indexOf(word);
+            if(indexOf > -1){
+                $scope.atBashData.splice(indexOf, 1);
+                $window.localStorage.setItem("atBash",$scope.atBashData);
+            }
+        }
+        function addData(word){
+            if($scope.atBashData.indexOf(word) == -1)            {
+                $scope.atBashData.push(word);
+                $window.localStorage.setItem("atBash",$scope.atBashData);
+            }
+        };
+
+    }]);
+
 var d3Controllers = angular.module('d3Controllers', []);
+
+
 d3Controllers.controller('D3ListCtrl',['$scope','$rootScope','FlightData',
     function($scope,$rootScope,FlightData){
       $rootScope.title='Yearly report';
