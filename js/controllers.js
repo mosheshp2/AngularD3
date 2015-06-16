@@ -23,11 +23,11 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Ph
 
 phonecatControllers.controller('AtBashCtrl',['$scope', '$window','$rootScope',
     function($scope, $window,$root) {
-        $root.title='ξιμεο ΰϊα"ω';
+        $root.title='ΧΧ™ΧΧ•Χ ΧΧªΧ‘"Χ© Χ•Χ’Χ™ΧΧΧ¨Χ™Χ';
         $scope.translate={
-            milonAtBash: 'ξιμεο ΰϊα"ω',
-            gimatry:'βιξθψιΰ',
-            atBash:'ΰϊαω'
+            milonAtBash: 'ΧΧ™ΧΧ•Χ ΧΧªΧ‘"Χ©',
+            gimatry:'Χ’Χ™ΧΧΧ¨Χ™Χ',
+            atBash:'ΧΧªΧ‘"Χ©'
         };
         var atB = $window.localStorage.getItem("atBash") ;
         $scope.atBashData = atB ? atB.split(',') : [];
