@@ -46,3 +46,31 @@ filters.filter('gimatry', function () {
     return result;
   };
 });
+filters.filter('smallGimatry', function () {
+  return function (input) {
+    var helper=[1,2,3,4,5,6,7,8,9,1,2,2,3,4,4,5,5,6,7,8,8,9,9,1,2,3,4];
+    var result = 0;
+    if (!input) return result;
+    for(var i = 0; i < input.length; i++){
+      var charCode = input[i].charCodeAt(0);
+      if(charCode > 1487 && charCode < 1515){
+        result += helper[charCode - 1488];
+      }
+    }
+    return result;
+  };
+});
+filters.filter('bigGimatry', function () {
+  return function (input) {
+    var helper=['אלף','בית','גימל','דלת','הא','ואו','זין','חית','טית','יוד','כף','כף','למד','מם','מם','נון','נון','סמך','עין','פה','פה','צדי','צדי','קוף','ריש','שין','תו'];
+    var result = '';
+    if (!input) return result;
+    for(var i = 0; i < input.length; i++){
+      var charCode = input[i].charCodeAt(0);
+      if(charCode > 1487 && charCode < 1515){
+        result += helper[charCode - 1488];
+      }
+    }
+    return result;
+  };
+});

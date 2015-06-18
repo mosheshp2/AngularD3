@@ -13,18 +13,59 @@
         font-weight: bold;
         cursor: pointer;
     }
-.w120{
-	width:105px;
-	display:inline-block;
+.input-word{
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 23px;
+    text-align: center;
 }
 </style>
 <div class="box">
     <p>מילון אתב"ש גימטריא</p>
-    <input ng-model="input" ng-keypress="keyPressed($event)"/><span class="dTitle" ng-click="addItem()"> + </span>
-    <div class="dTitle">
- 	גימטריא: <span class="w120">{{ input | gimatry}}</span> |  אתב"ש: {{input | atBash}}   | 
+
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 table-responsive">
+                <table class="table table-bordered table-hover table-sortable" id="tab_logic">
+                    <thead>
+                    <tr >
+                        <th class="text-center"> מילה </th>
+                        <th class="text-center"> גימטריא </th>
+                        <th class="text-center"> גימטריא קטנה </th>
+                        <th class="text-center"> גימטריא גדולה </th>
+                        <th class="text-center"> אתב"ש: </th>
+                        <th class="text-center"> גימטריא אתב"ש: </th>
+                        <th class="text-center"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td> <input ng-model="input" ng-keypress="keyPressed($event)" placeholder='הקלד מילה' class="input-word"/> </td>
+                        <td> {{ input | gimatry}} </td>
+                        <td> {{ input | smallGimatry}} </td>
+                        <td> {{ input | bigGimatry | gimatry}} </td>
+                        <td> {{ input | atBash}} </td>
+                        <td> {{ input | atBash | gimatry }} </td>
+
+                        <td> <button name="del0" ng-click="addItem()" class='btn btn-info glyphicon glyphicon-plus '></button> </td>
+                    </tr>
+                    <tr ng-repeat="word in atBashData">
+                        <td> {{word}}</td>
+                        <td> {{ word| gimatry}} </td>
+                        <td> {{ word| smallGimatry}} </td>
+                        <td> {{ word| bigGimatry | gimatry}} </td>
+                        <td> {{ word | atBash}} </td>
+                        <td> {{ word | atBash | gimatry}} </td>
+
+                        <td> <button name="del0" ng-click="remove(word)" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button> </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </div>
-    <div ng-repeat="word in atBashData">
-        <p ng-click="remove(word)">{{word}} = <span class="w120">{{word | gimatry}}</span>| {{word | atBash}}<span class="dTitle"> X </span></p>
-    </div>
+
 </div>
