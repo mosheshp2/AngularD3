@@ -34,6 +34,7 @@
                         <th class="text-center"> גימטריא </th>
                         <th class="text-center"> גימטריא קטנה </th>
                         <th class="text-center"> גימטריא גדולה </th>
+                        <th class="text-center"> גימטריא גדולה nocolel</th>
                         <th class="text-center"> אתב"ש: </th>
                         <th class="text-center"> גימטריא אתב"ש: </th>
                         <th class="text-center"></th>
@@ -45,6 +46,7 @@
                         <td> {{ input | gimatry}} </td>
                         <td> {{ input | smallGimatry}} </td>
                         <td> {{ input | bigGimatry | gimatry}} </td>
+                        <td> {{ (input | bigGimatry | gimatry) - (input | gimatry)}} </td>
                         <td> {{ input | atBash}} </td>
                         <td> {{ input | atBash | gimatry }} </td>
 
@@ -55,6 +57,7 @@
                         <td> {{ word| gimatry}} </td>
                         <td> {{ word| smallGimatry}} </td>
                         <td> {{ word| bigGimatry | gimatry}} </td>
+                        <td> {{ (word | bigGimatry | gimatry) - (word | gimatry)}} </td>
                         <td> {{ word | atBash}} </td>
                         <td> {{ word | atBash | gimatry}} </td>
 
