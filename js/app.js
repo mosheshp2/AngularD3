@@ -10,7 +10,8 @@ var phonecatApp = angular.module('phonecatApp', [
   'd3Services',
   'd3Controllers',
   'd3GraphService',
-  'd3Directives'
+  'd3Directives',
+  'gridControllers'
 ]);
 /// TODO: add dropdown for monthes      --DONE,
 /// add graph for yearly,
@@ -42,6 +43,14 @@ phonecatApp.config(['$routeProvider',
         .when('/AtBash/',{
             templateUrl: 'partials/AtBash.html',
             controller: 'AtBashCtrl'
+        })
+        .when('/NgGrid/',{
+            templateUrl: 'partials/NgGrid.html',
+            controller: 'NgGridCtrl'
+        })
+        .when('/UIGrid/',{
+            templateUrl: 'partials/UIGrid.html',
+            controller: 'UIGridCtrl'
         })
       .otherwise({
         redirectTo: '/d3'

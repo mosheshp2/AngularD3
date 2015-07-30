@@ -26,7 +26,7 @@
 
     <div class="container">
         <div class="row clearfix">
-            <div class="col-md-12 table-responsive">
+            <div class="col-md-12 table-responsive" style="width:115%">
                 <table class="table table-bordered table-hover table-sortable" id="tab_logic">
                     <thead>
                     <tr >
@@ -34,7 +34,10 @@
                         <th class="text-center"> גימטריא </th>
                         <th class="text-center"> גימטריא קטנה </th>
                         <th class="text-center"> גימטריא גדולה </th>
-                        <th class="text-center"> גימטריא גדולה nocolel</th>
+                        <th class="text-center"> גימטריא גדולה בלי כולל</th>
+                        <th class="text-center"> גימטריה משולשת </th>
+                        <th class="text-center"> גימטריה משולש חסר </th>
+
                         <th class="text-center"> אתב"ש: </th>
                         <th class="text-center"> גימטריא אתב"ש: </th>
                         <th class="text-center"></th>
@@ -47,6 +50,8 @@
                         <td> {{ input | smallGimatry}} </td>
                         <td> {{ input | bigGimatry | gimatry}} </td>
                         <td> {{ (input | bigGimatry | gimatry) - (input | gimatry)}} </td>
+                        <td> {{ input | triangleGim }} </td>
+                        <td> {{ (input | triangleGim) - (input | gimatry)}} </td>
                         <td> {{ input | atBash}} </td>
                         <td> {{ input | atBash | gimatry }} </td>
 
@@ -58,6 +63,8 @@
                         <td> {{ word| smallGimatry}} </td>
                         <td> {{ word| bigGimatry | gimatry}} </td>
                         <td> {{ (word | bigGimatry | gimatry) - (word | gimatry)}} </td>
+                        <td> {{ word | triangleGim }} </td>
+                        <td> {{ (word | triangleGim) - (word | gimatry)}} </td>
                         <td> {{ word | atBash}} </td>
                         <td> {{ word | atBash | gimatry}} </td>
 

@@ -74,3 +74,29 @@ filters.filter('bigGimatry', function () {
     return result;
   };
 });
+
+filters.filter('triangleGim', ['gimatryFilter',function (gimatry) {
+  return function (input) {
+    var result = 0;
+    if (!input) return result;
+    for(var i = 0; i < input.length; i++){
+      var charCode = input[i].charCodeAt(0);
+      if(charCode > 1487 && charCode < 1515){
+
+        var lastGim = gimatry(input[i]);
+
+        var sumLetter = lastGim;
+
+        for(var j = charCode - 1;j > 1487;j--) {
+            var iGim = gimatry(String.fromCharCode(j));
+            if(iGim != lastGim) {
+                sumLetter += iGim;
+            }
+            lastGim = iGim;
+        }
+        result += sumLetter;
+      }
+    }
+    return result;
+  };
+}]);
