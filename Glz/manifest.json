@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Galgalatz 2 Youtube",
+  "version": "1.0.0",
+  "description": "This plugin will add clickable links from Galgalatz website to Youtube first Vevo result, for preview",
+
+  "browser_action": {
+    "default_title": "Galgalatz 2 Youtube",
+    "default_icon": "glz.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts":[{
+    "matches": ["*://*.glgltz.co.il/*"],
+    "js":["jquery-2.1.4.min.js","inject-glz.js"],
+    "css":["css.css"]
+  }],
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/",
+    "tabs",
+    "http://www.glgltz.co.il/*"
+  ]
+}
