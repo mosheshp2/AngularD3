@@ -49,6 +49,12 @@ phonecatControllers.controller('AtBashCtrl',['$scope', '$window','$rootScope',
                 $window.localStorage.setItem("atBash",$scope.atBashData);
             }
         }
+        $scope.useColor = true;
+        $scope.getColor = function(num) {
+            var normNum = num % 1800;
+            var hsla = normNum / 5;
+            return 'color:hsla(' + hsla +',100%,' + ( $scope.useColor ? '50%' : '0%' ) + ',1);';
+        };
         function addData(word){
             if($scope.atBashData.indexOf(word) == -1)            {
                 $scope.atBashData.unshift(word);

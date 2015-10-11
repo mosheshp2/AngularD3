@@ -22,7 +22,12 @@
 }
 </style>
 <div class="box">
-    <p>מילון אתב"ש גימטריא</p>
+    <p>מילון אתב"ש גימטריא
+        <span style="font-size: small;">
+            (צבעוני
+            <input type="checkbox" ng-model="useColor"/>)
+        </span>
+    </p>
 
     <div class="container">
         <div class="row clearfix">
@@ -46,27 +51,27 @@
                     <tbody>
                     <tr>
                         <td> <input ng-model="input" ng-keypress="keyPressed($event)" placeholder='הקלד מילה' class="input-word"/> </td>
-                        <td> {{ input | gimatry}} </td>
+                        <td style="{{getColor(filtered)}}"> {{ filtered= (input | gimatry)}} </td>
                         <td> {{ input | smallGimatry}} </td>
                         <td> {{ input | bigGimatry | gimatry}} </td>
                         <td> {{ (input | bigGimatry | gimatry) - (input | gimatry)}} </td>
                         <td> {{ input | triangleGim }} </td>
                         <td> {{ (input | triangleGim) - (input | gimatry)}} </td>
                         <td> {{ input | atBash}} </td>
-                        <td> {{ input | atBash | gimatry }} </td>
+                        <td style="{{getColor(filterAt)}}"> {{ filterAt = (input | atBash | gimatry) }} </td>
 
                         <td> <button name="del0" ng-click="addItem()" class='btn btn-info glyphicon glyphicon-plus '></button> </td>
                     </tr>
                     <tr ng-repeat="word in atBashData">
                         <td> {{word}}</td>
-                        <td> {{ word| gimatry}} </td>
+                        <td style="{{getColor(filteredW)}}"> {{ filteredW=(word| gimatry)}} </td>
                         <td> {{ word| smallGimatry}} </td>
                         <td> {{ word| bigGimatry | gimatry}} </td>
                         <td> {{ (word | bigGimatry | gimatry) - (word | gimatry)}} </td>
                         <td> {{ word | triangleGim }} </td>
                         <td> {{ (word | triangleGim) - (word | gimatry)}} </td>
                         <td> {{ word | atBash}} </td>
-                        <td> {{ word | atBash | gimatry}} </td>
+                        <td style="{{getColor(filterAt2)}}"> {{ filterAt2=(word | atBash | gimatry)}} </td>
 
                         <td> <button name="del0" ng-click="remove(word)" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button> </td>
                     </tr>
