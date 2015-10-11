@@ -20,6 +20,14 @@
     font-size: 23px;
     text-align: center;
 }
+    .rotate--90{
+        transform: rotate(-90deg);
+        font-size: small;
+    }
+    .mhide{
+        font-size: 0;
+        width:1px;
+    }
 </style>
 <div class="box">
     <p>מילון אתב"ש גימטריא
@@ -37,14 +45,13 @@
                     <tr >
                         <th class="text-center"> מילה </th>
                         <th class="text-center"> גימטריא </th>
-                        <th class="text-center"> גימטריא קטנה </th>
-                        <th class="text-center"> גימטריא גדולה </th>
-                        <th class="text-center"> גימטריא גדולה בלי כולל</th>
-                        <th class="text-center"> גימטריה משולשת </th>
-                        <th class="text-center"> גימטריה משולש חסר </th>
-
-                        <th class="text-center"> אתב"ש: </th>
-                        <th class="text-center"> גימטריא אתב"ש: </th>
+                        <th class="text-center" ng-class="{'rotate--90':toggle[0]}" ng-click="toggle[0] = !toggle[0];"> גימטריא קטנה </th>
+                        <th class="text-center" ng-class="{'rotate--90':toggle[1]}" ng-click="toggle[1] = !toggle[1];"> גימטריא גדולה </th>
+                        <th class="text-center" ng-class="{'rotate--90':toggle[2]}" ng-click="toggle[2] = !toggle[2];"> גימטריא גדולה בלי כולל</th>
+                        <th class="text-center" ng-class="{'rotate--90':toggle[3]}" ng-click="toggle[3] = !toggle[3];"> גימטריה משולשת </th>
+                        <th class="text-center" ng-class="{'rotate--90':toggle[4]}" ng-click="toggle[4] = !toggle[4];"> גימטריה משולש חסר </th>
+                        <th class="text-center" ng-class="{'rotate--90':toggle[5]}" ng-click="toggle[5] = !toggle[5];"> אתב"ש: </th>
+                        <th class="text-center" ng-class="{'rotate--90':toggle[6]}" ng-click="toggle[6] = !toggle[6];"> גימטריא אתב"ש: </th>
                         <th class="text-center"></th>
                     </tr>
                     </thead>
@@ -52,26 +59,26 @@
                     <tr>
                         <td> <input ng-model="input" ng-keypress="keyPressed($event)" placeholder='הקלד מילה' class="input-word"/> </td>
                         <td style="{{getColor(filtered)}}"> {{ filtered= (input | gimatry)}} </td>
-                        <td> {{ input | smallGimatry}} </td>
-                        <td> {{ input | bigGimatry | gimatry}} </td>
-                        <td> {{ (input | bigGimatry | gimatry) - (input | gimatry)}} </td>
-                        <td> {{ input | triangleGim }} </td>
-                        <td> {{ (input | triangleGim) - (input | gimatry)}} </td>
-                        <td> {{ input | atBash}} </td>
-                        <td style="{{getColor(filterAt)}}"> {{ filterAt = (input | atBash | gimatry) }} </td>
+                        <td ng-class="{'mhide':toggle[0]}"> {{ input | smallGimatry}} </td>
+                        <td ng-class="{'mhide':toggle[1]}"> {{ input | bigGimatry | gimatry}} </td>
+                        <td ng-class="{'mhide':toggle[2]}"> {{ (input | bigGimatry | gimatry) - (input | gimatry)}} </td>
+                        <td ng-class="{'mhide':toggle[3]}"> {{ input | triangleGim }} </td>
+                        <td ng-class="{'mhide':toggle[4]}"> {{ (input | triangleGim) - (input | gimatry)}} </td>
+                        <td ng-class="{'mhide':toggle[5]}"> {{ input | atBash}} </td>
+                        <td ng-class="{'mhide':toggle[6]}" style="{{getColor(filterAt)}}"> {{ filterAt = (input | atBash | gimatry) }} </td>
 
                         <td> <button name="del0" ng-click="addItem()" class='btn btn-info glyphicon glyphicon-plus '></button> </td>
                     </tr>
                     <tr ng-repeat="word in atBashData">
                         <td> {{word}}</td>
                         <td style="{{getColor(filteredW)}}"> {{ filteredW=(word| gimatry)}} </td>
-                        <td> {{ word| smallGimatry}} </td>
-                        <td> {{ word| bigGimatry | gimatry}} </td>
-                        <td> {{ (word | bigGimatry | gimatry) - (word | gimatry)}} </td>
-                        <td> {{ word | triangleGim }} </td>
-                        <td> {{ (word | triangleGim) - (word | gimatry)}} </td>
-                        <td> {{ word | atBash}} </td>
-                        <td style="{{getColor(filterAt2)}}"> {{ filterAt2=(word | atBash | gimatry)}} </td>
+                        <td ng-class="{'mhide':toggle[0]}"> {{ word| smallGimatry}} </td>
+                        <td ng-class="{'mhide':toggle[1]}"> {{ word| bigGimatry | gimatry}} </td>
+                        <td ng-class="{'mhide':toggle[2]}"> {{ (word | bigGimatry | gimatry) - (word | gimatry)}} </td>
+                        <td ng-class="{'mhide':toggle[3]}"> {{ word | triangleGim }} </td>
+                        <td ng-class="{'mhide':toggle[4]}"> {{ (word | triangleGim) - (word | gimatry)}} </td>
+                        <td ng-class="{'mhide':toggle[5]}"> {{ word | atBash}} </td>
+                        <td ng-class="{'mhide':toggle[6]}" style="{{getColor(filterAt2)}}"> {{ filterAt2=(word | atBash | gimatry)}} </td>
 
                         <td> <button name="del0" ng-click="remove(word)" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button> </td>
                     </tr>
