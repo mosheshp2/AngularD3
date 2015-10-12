@@ -13,12 +13,19 @@
         font-weight: bold;
         cursor: pointer;
     }
+    table tr TD.no-pad{
+
+        padding: 0;
+    }
 .input-word{
     border: none;
     padding: 0;
     margin: 0;
     font-size: 23px;
     text-align: center;
+    width:100%;
+    height:100%;
+    background-color: initial;
 }
     .rotate--90{
         transform: rotate(-90deg);
@@ -57,7 +64,7 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td> <input ng-model="input" ng-keypress="keyPressed($event)" placeholder='הקלד מילה' class="input-word"/> </td>
+                        <td class="no-pad"> <input ng-model="input" ng-keypress="keyPressed($event)" placeholder='הקלד מילה' class="input-word"/> </td>
                         <td style="{{getColor(filtered)}}"> {{ filtered= (input | gimatry)}} </td>
                         <td ng-class="{'mhide':toggle[0]}"> {{ input | smallGimatry}} </td>
                         <td ng-class="{'mhide':toggle[1]}"> {{ input | bigGimatry | gimatry}} </td>
@@ -70,9 +77,11 @@
                         <td> <button name="del0" ng-click="addItem()" class='btn btn-info glyphicon glyphicon-plus '></button> </td>
                     </tr>
                     <tr ng-repeat="word in atBashData">
-                        <td> {{word}}</td>
-                        <td style="{{getColor(filteredW)}}"> {{ filteredW=(word| gimatry)}} </td>
-                        <td ng-class="{'mhide':toggle[0]}"> {{ word| smallGimatry}} </td>
+                        <td class="no-pad">
+                            <input type="text" ng-model="word" class="input-word" ng-blur="saveWord(word,$index)"/>
+                        </td>
+                        <td style="{{getColor(filteredW)}}"> {{ filteredW =(word | gimatry)}} </td>
+                        <td ng-class="{'mhide':toggle[0]}"> {{ word | smallGimatry}} </td>
                         <td ng-class="{'mhide':toggle[1]}"> {{ word| bigGimatry | gimatry}} </td>
                         <td ng-class="{'mhide':toggle[2]}"> {{ (word | bigGimatry | gimatry) - (word | gimatry)}} </td>
                         <td ng-class="{'mhide':toggle[3]}"> {{ word | triangleGim }} </td>

@@ -51,7 +51,12 @@ phonecatControllers.controller('AtBashCtrl',['$scope', '$window','$rootScope',
         }
         $scope.useColor = true;
         $scope.toggle = [true,true,true,true,true,true,true];
-
+        $scope.saveWord = function(word,index){
+            if(word && $scope.atBashData[index] !== word){
+                $scope.atBashData[index] = word;
+                $window.localStorage.setItem("atBash",$scope.atBashData);
+            }
+        }
         $scope.getColor = function(num) {
             var normNum = num % 1800;
             var hsla = normNum / 5;
