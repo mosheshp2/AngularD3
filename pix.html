@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+    <title>Pix to Hex</title>
+    <style>
+      div { padding: 0; margin: 0;}
+      #grid { border-bottom: 1px solid black; border-right: 1px solid black; display: inline-block; padding-right: 1px;}
+      #small { border: 1px solid blue; display: inline-block; padding-right: 1px;}
+      .col { flex-direction:column; width:10px; display: inline-flex; }
+      .cel { flex-shrink: 0; border-top: 1px solid black;border-left: 1px solid black; background-color: white; width:10px; height: 10px; display: inline-block; }
+      /*.cel.cel7 { border-right:  1px solid black;}*/
+      .cel.selected { background-color: black;}
+      #small .col {width:1px;}
+      #small .cel {width:1px;height:1px;border:none;}
+
+    </style>
+</head>
+<body>
+<div id="grid"></div>
+<div id="hex"></div>
+<div id="small"></div>
+<div id="input">
+  <input type="text" style="width:300px;" id="txtHex" /><input type="button" value="draw" onclick="p2h.draw();"/>
+</div>
+<script src="Glz/jquery-2.1.4.min.js"></script>
+<script>
+
+  var p2h = {
+    config:{ h: 8, w: 28 },
+    init:function(selector){
+      var h = GetURLParameter('h');
+      var w = GetURLParameter('w');
+      if(h) p2h.config.h = +h;
+      if(w) p2h.config.w = +w;
+      p2h.data = [];
+      for(var i =0; i< p2h.config.w; i++) {
+        p2h.data.push([]);
+        $(selector).append('<div class="col col' + i +'"/>');
+        $('#small').append('<div class="col col' + i +'"/>');
+        var col = $(selector).find('.col' + i);
+        var col2 = $('#small').find('.col' + i);
+        for (var j = 0; j < p2h.config.h; j++) {
+            p2h.data[i].push(0);
+            col.append('<div class="cel cel' + j +'" data="['+ i + ',' + j +']"/>');
+            col2.append('<div class="cel cel' + j +'" />');
+        }
+      }
+      $(selector).find('.cel').click(function(e){
+          var xy = JSON.parse($(this).toggleClass('selected').attr('data'));
+          $('#small').find('.col' + xy[0] + ' .cel' + xy[1]).toggleClass('selected');
+          var val = p2h.data[xy[0]][xy[1]] ? 0 : 1;
+          p2h.data[xy[0]][xy[1]] = val;
+          p2h.writeHex();
+      });
+    },
+    draw:function(){
+      $('#txt');
+    },
+    writeHex: function() {
+
+      var hexText = '';
+      for(var i = 0; i<p2h.config.w; i++){
+        var binStr = '';
+        for (var j = 0; j < p2h.config.h; j++) {
+          binStr =  p2h.data[i][j].toString() + binStr;
+        }
+        var hexStr = parseInt(binStr, 2).toString(16);
+        hexStr = hexStr.length > 1 ? hexStr : '0' + hexStr;
+        hexText += '0x' + hexStr + ',';
+        if(i == 7) {
+          $('#txtHex').val(hexText);
+          hexText = '<b>' + hexText + '</b>';
+        }
+      }
+      $('#hex').html(hexText);
+    },
+    data:null
+
+  };
+  p2h.init('#grid');
+
+  function GetURLParameter(sParam)  {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) {
+      var sParameterName = sURLVariables[i].split('=');
+      if (sParameterName[0] == sParam) {
+        return sParameterName[1];
+      }
+    }
+  }
+</script>
+</body>
+</html>
