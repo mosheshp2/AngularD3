@@ -16,7 +16,7 @@
     </style>
 </head>
 <body>
-<div id="grid"></div>
+<div id="grid" ondragstart="p2h.dragStart(event);" ondragover="p2h.dragOver(event);" ondragend="p2h.dragEnd(event);"></div>
 <div id="hex"></div>
 <div id="small"></div>
 <div id="input">
@@ -53,13 +53,76 @@
           p2h.writeHex();
       });
     },
-    draw:function(){
-      $('#txt');
+    dragStart: function(e){
+        p2h._drag = [];
+    },
+    dragEnd: function(e){
+        console.log(e);
+    },
+    dragOver: function(e){
+        if(e && e.srcElement){
+           var attr = $(e.srcElement).attr('data');
+           if(attr) {
+              attr = JSON.parse(attr);
+              if(attr && attr.length > 0){
+                if(p2h._drag.indexOf(attr[0] + ',' + attr[1]) === -1){
+                    p2h._drag.push(attr[0] + ',' + attr[1]);
+                    $(e.srcElement).addClass('selected');
+                    $('#small').find('.col' + attr[0] + ' .cel' + attr[1]).addClass('selected');
+                    p2h.data[attr[0]][attr[1]] = 1;
+                    p2h.writeHex();
+
+                }
+              }
+           }
+        }
+        
+        console.log(e);
+    },
+    _drag:[],
+    draw: function(){
+       var hexVal = $('#txtHex').val();
+       //0x00,0x7a,0x04,0x08,0x10,0x28,0x46,0x00,
+       var cols = hexVal.split(',');
+       $.each(cols, function(ind, col) {
+          var txt = col.replace('0x','');
+          if(txt.length != 2) return 'error, unexpected input';
+          
+            var binStr = parseInt(txt[1], 16).toString(2);
+            var binStr2 = parseInt(txt[0], 16).toString(2);
+            for (var pad = binStr.length; pad < 4; pad++) binStr = '0' + binStr;// pad left with '0's to clear dots
+            for (var pad = binStr2.length; pad < 4; pad++) binStr2 = '0' + binStr2;// pad left with '0's to clear dots
+            for (var i = 0; i < 4; i++) {
+              
+              p2h.data[ind][i] = +binStr[3 - i];
+              p2h.data[ind][i + 4] = +binStr2[3 - i];
+              if(p2h.data[ind][i]){  //UGLY CODE...
+                 $('#small').find('.col' + ind + ' .cel' + i).addClass('selected');
+                 $('#grid').find('.col' + ind + ' .cel' + i).addClass('selected');
+              }
+              else{
+                 $('#small').find('.col' + ind + ' .cel' + i).removeClass('selected');
+                 $('#grid').find('.col' + ind + ' .cel' + i).removeClass('selected');
+                 
+              }
+              if(p2h.data[ind][i + 4]){
+                 $('#small').find('.col' + ind + ' .cel' + (i + 4)).addClass('selected');
+                 $('#grid').find('.col' + ind + ' .cel' + (i + 4)).addClass('selected');
+              }
+              else{
+                 $('#small').find('.col' + ind + ' .cel' + (i + 4)).removeClass('selected');
+                 $('#grid').find('.col' + ind + ' .cel' + (i + 4)).removeClass('selected');
+              }
+              
+            }
+            
+         
+       });
     },
     writeHex: function() {
 
       var hexText = '';
-      for(var i = 0; i<p2h.config.w; i++){
+      for(var i = 0; i < p2h.config.w; i++){
         var binStr = '';
         for (var j = 0; j < p2h.config.h; j++) {
           binStr =  p2h.data[i][j].toString() + binStr;
