@@ -1,0 +1,34 @@
+{
+  "name": "angulard3",
+  "version": "1.0.0",
+  "description": "Shpitz sandbox playground whatever",
+  "main": "ebayProxy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mosheshp2/AngularD3.git"
+  },
+  "keywords": [
+    "AtBash",
+    "Gimatry",
+    "Pix2Hex",
+    "eBay",
+    "accurate",
+    "eBay",
+    "Variations"
+  ],
+  "author": "Moshe Shpitz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mosheshp2/AngularD3/issues"
+  },
+  "homepage": "https://github.com/mosheshp2/AngularD3#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "request": "^2.80.0"
+  }
+}

@@ -1,0 +1,1327 @@
+{
+    "searchUrl": "http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=MosheShp-Accurate-PRD-aae576df5-38708578&GLOBAL-ID=EBAY-US&RESPONSE-DATA-FORMAT=JSONcallback=_cb_findItemsByKeywords&REST-PAYLOAD&keywords=arduino%20pro%20mini&paginationInput.entriesPerPage=10&itemFilter(0).name=Condition&itemFilter(0).value(0)=New&itemFilter(1).name=ListingType&itemFilter(1).value(0)=AuctionWithBIN&itemFilter(1).value(1)=FixedPrice&sortOrder=PricePlusShippingLowest",
+    "params": "&keywords=arduino%20pro%20mini&paginationInput.entriesPerPage=10&itemFilter(0).name=Condition&itemFilter(0).value(0)=New&itemFilter(1).name=ListingType&itemFilter(1).value(0)=AuctionWithBIN&itemFilter(1).value(1)=FixedPrice&sortOrder=PricePlusShippingLowest",
+    "keywords": "arduino pro mini",
+    "baseUrl": "http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=MosheShp-Accurate-PRD-aae576df5-38708578&GLOBAL-ID=EBAY-US&RESPONSE-DATA-FORMAT=JSONcallback=_cb_findItemsByKeywords&REST-PAYLOAD",
+    "findItemsByKeywordsResponse": [
+        {
+            "ack": [
+                "Success"
+            ],
+            "version": [
+                "1.13.0"
+            ],
+            "timestamp": [
+                "2017-03-06T13:06:07.899Z"
+            ],
+            "searchResult": [
+                {
+                    "@count": "10",
+                    "item": [
+                        {
+                            "itemId": [
+                                "232029961332"
+                            ],
+                            "title": [
+                                "Compatible Mini Arduino Pro atmega328 Board NEW M43 2016 Nano 5V 16M Fashion"
+                            ],
+                            "globalId": [
+                                "EBAY-US"
+                            ],
+                            "primaryCategory": [
+                                {
+                                    "categoryId": [
+                                        "58293"
+                                    ],
+                                    "categoryName": [
+                                        "PCB Assembly Equipment"
+                                    ]
+                                }
+                            ],
+                            "galleryURL": [
+                                "http:\/\/thumbs1.ebaystatic.com\/m\/mmCZFLdhmHbHnF-E9AOaVIg\/140.jpg"
+                            ],
+                            "viewItemURL": [
+                                "http:\/\/www.ebay.com\/itm\/Compatible-Mini-Arduino-Pro-atmega328-Board-NEW-M43-2016-Nano-5V-16M-Fashion-\/232029961332"
+                            ],
+                            "paymentMethod": [
+                                "PayPal"
+                            ],
+                            "autoPay": [
+                                "false"
+                            ],
+                            "location": [
+                                "China"
+                            ],
+                            "country": [
+                                "CN"
+                            ],
+                            "shippingInfo": [
+                                {
+                                    "shippingServiceCost": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "0.0"
+                                        }
+                                    ],
+                                    "shippingType": [
+                                        "Free"
+                                    ],
+                                    "shipToLocations": [
+                                        "AU",
+                                        "Americas",
+                                        "Europe",
+                                        "Asia"
+                                    ],
+                                    "expeditedShipping": [
+                                        "false"
+                                    ],
+                                    "oneDayShippingAvailable": [
+                                        "false"
+                                    ],
+                                    "handlingTime": [
+                                        "1"
+                                    ]
+                                }
+                            ],
+                            "sellingStatus": [
+                                {
+                                    "currentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "1.87"
+                                        }
+                                    ],
+                                    "convertedCurrentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "1.87"
+                                        }
+                                    ],
+                                    "sellingState": [
+                                        "Active"
+                                    ],
+                                    "timeLeft": [
+                                        "P18DT20H28M44S"
+                                    ]
+                                }
+                            ],
+                            "listingInfo": [
+                                {
+                                    "bestOfferEnabled": [
+                                        "false"
+                                    ],
+                                    "buyItNowAvailable": [
+                                        "false"
+                                    ],
+                                    "startTime": [
+                                        "2016-07-28T09:34:51.000Z"
+                                    ],
+                                    "endTime": [
+                                        "2017-03-25T09:34:51.000Z"
+                                    ],
+                                    "listingType": [
+                                        "FixedPrice"
+                                    ],
+                                    "gift": [
+                                        "false"
+                                    ]
+                                }
+                            ],
+                            "returnsAccepted": [
+                                "true"
+                            ],
+                            "condition": [
+                                {
+                                    "conditionId": [
+                                        "1000"
+                                    ],
+                                    "conditionDisplayName": [
+                                        "New"
+                                    ]
+                                }
+                            ],
+                            "isMultiVariationListing": [
+                                "false"
+                            ],
+                            "topRatedListing": [
+                                "false"
+                            ]
+                        },
+                        {
+                            "itemId": [
+                                "262136733170"
+                            ],
+                            "title": [
+                                "Redesign Pro Mini atmega328 3.3V 8M Replace ATmega128 Arduino Compatible Nano GM"
+                            ],
+                            "globalId": [
+                                "EBAY-ENCA"
+                            ],
+                            "primaryCategory": [
+                                {
+                                    "categoryId": [
+                                        "51004"
+                                    ],
+                                    "categoryName": [
+                                        "Other Consumer Electronic Lots"
+                                    ]
+                                }
+                            ],
+                            "galleryURL": [
+                                "http:\/\/thumbs3.ebaystatic.com\/m\/mnAltK1_f1AN5HeFmby6MMQ\/140.jpg"
+                            ],
+                            "viewItemURL": [
+                                "http:\/\/www.ebay.com\/itm\/Redesign-Pro-Mini-atmega328-3-3V-8M-Replace-ATmega128-Arduino-Compatible-Nano-GM-\/262136733170"
+                            ],
+                            "paymentMethod": [
+                                "PayPal"
+                            ],
+                            "autoPay": [
+                                "true"
+                            ],
+                            "location": [
+                                "China"
+                            ],
+                            "country": [
+                                "CN"
+                            ],
+                            "shippingInfo": [
+                                {
+                                    "shippingServiceCost": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "0.0"
+                                        }
+                                    ],
+                                    "shippingType": [
+                                        "Free"
+                                    ],
+                                    "shipToLocations": [
+                                        "Worldwide"
+                                    ],
+                                    "expeditedShipping": [
+                                        "false"
+                                    ],
+                                    "oneDayShippingAvailable": [
+                                        "false"
+                                    ],
+                                    "handlingTime": [
+                                        "1"
+                                    ]
+                                }
+                            ],
+                            "sellingStatus": [
+                                {
+                                    "currentPrice": [
+                                        {
+                                            "@currencyId": "CAD",
+                                            "__value__": "2.54"
+                                        }
+                                    ],
+                                    "convertedCurrentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "1.89"
+                                        }
+                                    ],
+                                    "sellingState": [
+                                        "Active"
+                                    ],
+                                    "timeLeft": [
+                                        "P27DT17H30M29S"
+                                    ]
+                                }
+                            ],
+                            "listingInfo": [
+                                {
+                                    "bestOfferEnabled": [
+                                        "false"
+                                    ],
+                                    "buyItNowAvailable": [
+                                        "false"
+                                    ],
+                                    "startTime": [
+                                        "2015-11-10T06:36:36.000Z"
+                                    ],
+                                    "endTime": [
+                                        "2017-04-03T06:36:36.000Z"
+                                    ],
+                                    "listingType": [
+                                        "FixedPrice"
+                                    ],
+                                    "gift": [
+                                        "false"
+                                    ]
+                                }
+                            ],
+                            "returnsAccepted": [
+                                "true"
+                            ],
+                            "condition": [
+                                {
+                                    "conditionId": [
+                                        "1000"
+                                    ],
+                                    "conditionDisplayName": [
+                                        "New"
+                                    ]
+                                }
+                            ],
+                            "isMultiVariationListing": [
+                                "false"
+                            ],
+                            "topRatedListing": [
+                                "false"
+                            ]
+                        },
+                        {
+                            "itemId": [
+                                "232131644982"
+                            ],
+                            "title": [
+                                "Compatible Mini Arduino Pro atmega328 Board NEW M43 2016 Nano 5V 16M Fashion"
+                            ],
+                            "globalId": [
+                                "EBAY-US"
+                            ],
+                            "primaryCategory": [
+                                {
+                                    "categoryId": [
+                                        "58293"
+                                    ],
+                                    "categoryName": [
+                                        "PCB Assembly Equipment"
+                                    ]
+                                }
+                            ],
+                            "galleryURL": [
+                                "http:\/\/thumbs3.ebaystatic.com\/m\/mfKkKXtJLrxklNxh3RMhZ5A\/140.jpg"
+                            ],
+                            "viewItemURL": [
+                                "http:\/\/www.ebay.com\/itm\/Compatible-Mini-Arduino-Pro-atmega328-Board-NEW-M43-2016-Nano-5V-16M-Fashion-\/232131644982"
+                            ],
+                            "paymentMethod": [
+                                "PayPal"
+                            ],
+                            "autoPay": [
+                                "false"
+                            ],
+                            "location": [
+                                "China"
+                            ],
+                            "country": [
+                                "CN"
+                            ],
+                            "shippingInfo": [
+                                {
+                                    "shippingServiceCost": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "0.0"
+                                        }
+                                    ],
+                                    "shippingType": [
+                                        "Free"
+                                    ],
+                                    "shipToLocations": [
+                                        "AU",
+                                        "Americas",
+                                        "Europe",
+                                        "Asia"
+                                    ],
+                                    "expeditedShipping": [
+                                        "false"
+                                    ],
+                                    "oneDayShippingAvailable": [
+                                        "false"
+                                    ],
+                                    "handlingTime": [
+                                        "1"
+                                    ]
+                                }
+                            ],
+                            "sellingStatus": [
+                                {
+                                    "currentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "1.9"
+                                        }
+                                    ],
+                                    "convertedCurrentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "1.9"
+                                        }
+                                    ],
+                                    "sellingState": [
+                                        "Active"
+                                    ],
+                                    "timeLeft": [
+                                        "P25DT16H49M38S"
+                                    ]
+                                }
+                            ],
+                            "listingInfo": [
+                                {
+                                    "bestOfferEnabled": [
+                                        "false"
+                                    ],
+                                    "buyItNowAvailable": [
+                                        "false"
+                                    ],
+                                    "startTime": [
+                                        "2016-11-02T05:55:45.000Z"
+                                    ],
+                                    "endTime": [
+                                        "2017-04-01T05:55:45.000Z"
+                                    ],
+                                    "listingType": [
+                                        "FixedPrice"
+                                    ],
+                                    "gift": [
+                                        "false"
+                                    ]
+                                }
+                            ],
+                            "returnsAccepted": [
+                                "true"
+                            ],
+                            "condition": [
+                                {
+                                    "conditionId": [
+                                        "1000"
+                                    ],
+                                    "conditionDisplayName": [
+                                        "New"
+                                    ]
+                                }
+                            ],
+                            "isMultiVariationListing": [
+                                "false"
+                            ],
+                            "topRatedListing": [
+                                "false"
+                            ]
+                        },
+                        {
+                            "itemId": [
+                                "191679508570"
+                            ],
+                            "title": [
+                                "Pro Mini Enhancement ATMEGA328P 5V 16MHz Compatible to Arduino PRO mini"
+                            ],
+                            "globalId": [
+                                "EBAY-US"
+                            ],
+                            "primaryCategory": [
+                                {
+                                    "categoryId": [
+                                        "4660"
+                                    ],
+                                    "categoryName": [
+                                        "Other Electronic Components"
+                                    ]
+                                }
+                            ],
+                            "galleryURL": [
+                                "http:\/\/thumbs3.ebaystatic.com\/m\/msmgNki8-Q-g_BN7C2BbVcQ\/140.jpg"
+                            ],
+                            "viewItemURL": [
+                                "http:\/\/www.ebay.com\/itm\/Pro-Mini-Enhancement-ATMEGA328P-5V-16MHz-Compatible-Arduino-PRO-mini-\/191679508570"
+                            ],
+                            "paymentMethod": [
+                                "PayPal"
+                            ],
+                            "autoPay": [
+                                "false"
+                            ],
+                            "location": [
+                                "China"
+                            ],
+                            "country": [
+                                "CN"
+                            ],
+                            "shippingInfo": [
+                                {
+                                    "shippingServiceCost": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "0.0"
+                                        }
+                                    ],
+                                    "shippingType": [
+                                        "Free"
+                                    ],
+                                    "shipToLocations": [
+                                        "AU",
+                                        "Americas",
+                                        "Europe",
+                                        "Asia"
+                                    ],
+                                    "expeditedShipping": [
+                                        "false"
+                                    ],
+                                    "oneDayShippingAvailable": [
+                                        "false"
+                                    ],
+                                    "handlingTime": [
+                                        "1"
+                                    ]
+                                }
+                            ],
+                            "sellingStatus": [
+                                {
+                                    "currentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "1.93"
+                                        }
+                                    ],
+                                    "convertedCurrentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "1.93"
+                                        }
+                                    ],
+                                    "sellingState": [
+                                        "Active"
+                                    ],
+                                    "timeLeft": [
+                                        "P17DT21H57M26S"
+                                    ]
+                                }
+                            ],
+                            "listingInfo": [
+                                {
+                                    "bestOfferEnabled": [
+                                        "false"
+                                    ],
+                                    "buyItNowAvailable": [
+                                        "false"
+                                    ],
+                                    "startTime": [
+                                        "2015-09-01T11:03:33.000Z"
+                                    ],
+                                    "endTime": [
+                                        "2017-03-24T11:03:33.000Z"
+                                    ],
+                                    "listingType": [
+                                        "FixedPrice"
+                                    ],
+                                    "gift": [
+                                        "false"
+                                    ]
+                                }
+                            ],
+                            "returnsAccepted": [
+                                "true"
+                            ],
+                            "condition": [
+                                {
+                                    "conditionId": [
+                                        "1000"
+                                    ],
+                                    "conditionDisplayName": [
+                                        "New"
+                                    ]
+                                }
+                            ],
+                            "isMultiVariationListing": [
+                                "false"
+                            ],
+                            "topRatedListing": [
+                                "false"
+                            ]
+                        },
+                        {
+                            "itemId": [
+                                "252773136530"
+                            ],
+                            "title": [
+                                "Micro New Pro ATmega32U4 5V 16MHz Replace ATmega328p Arduino Pro Mini"
+                            ],
+                            "globalId": [
+                                "EBAY-US"
+                            ],
+                            "primaryCategory": [
+                                {
+                                    "categoryId": [
+                                        "57520"
+                                    ],
+                                    "categoryName": [
+                                        "Other Sensors"
+                                    ]
+                                }
+                            ],
+                            "galleryURL": [
+                                "http:\/\/thumbs3.ebaystatic.com\/m\/mEpt-IkU4gr5ggX7Y0L_7yw\/140.jpg"
+                            ],
+                            "viewItemURL": [
+                                "http:\/\/www.ebay.com\/itm\/Micro-New-Pro-ATmega32U4-5V-16MHz-Replace-ATmega328p-Arduino-Pro-Mini-\/252773136530"
+                            ],
+                            "paymentMethod": [
+                                "PayPal"
+                            ],
+                            "autoPay": [
+                                "false"
+                            ],
+                            "location": [
+                                "China"
+                            ],
+                            "country": [
+                                "CN"
+                            ],
+                            "shippingInfo": [
+                                {
+                                    "shippingServiceCost": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "0.0"
+                                        }
+                                    ],
+                                    "shippingType": [
+                                        "Free"
+                                    ],
+                                    "shipToLocations": [
+                                        "Worldwide"
+                                    ],
+                                    "expeditedShipping": [
+                                        "false"
+                                    ],
+                                    "oneDayShippingAvailable": [
+                                        "false"
+                                    ],
+                                    "handlingTime": [
+                                        "1"
+                                    ]
+                                }
+                            ],
+                            "sellingStatus": [
+                                {
+                                    "currentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "2.0"
+                                        }
+                                    ],
+                                    "convertedCurrentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "2.0"
+                                        }
+                                    ],
+                                    "sellingState": [
+                                        "Active"
+                                    ],
+                                    "timeLeft": [
+                                        "P11DT17H14M1S"
+                                    ]
+                                }
+                            ],
+                            "listingInfo": [
+                                {
+                                    "bestOfferEnabled": [
+                                        "true"
+                                    ],
+                                    "buyItNowAvailable": [
+                                        "false"
+                                    ],
+                                    "startTime": [
+                                        "2017-02-16T06:20:08.000Z"
+                                    ],
+                                    "endTime": [
+                                        "2017-03-18T06:20:08.000Z"
+                                    ],
+                                    "listingType": [
+                                        "FixedPrice"
+                                    ],
+                                    "gift": [
+                                        "false"
+                                    ]
+                                }
+                            ],
+                            "returnsAccepted": [
+                                "true"
+                            ],
+                            "condition": [
+                                {
+                                    "conditionId": [
+                                        "1000"
+                                    ],
+                                    "conditionDisplayName": [
+                                        "New"
+                                    ]
+                                }
+                            ],
+                            "isMultiVariationListing": [
+                                "false"
+                            ],
+                            "topRatedListing": [
+                                "false"
+                            ]
+                        },
+                        {
+                            "itemId": [
+                                "172483725293"
+                            ],
+                            "title": [
+                                "2016 Enhancement Pro Mini 5V adjustable 16M MEGA328P Arduino pro mini compatible"
+                            ],
+                            "globalId": [
+                                "EBAY-ENCA"
+                            ],
+                            "primaryCategory": [
+                                {
+                                    "categoryId": [
+                                        "175745"
+                                    ],
+                                    "categoryName": [
+                                        "Other Gadgets"
+                                    ]
+                                }
+                            ],
+                            "galleryURL": [
+                                "http:\/\/thumbs2.ebaystatic.com\/m\/mrq03gafSggLOhCSjV4JfNw\/140.jpg"
+                            ],
+                            "viewItemURL": [
+                                "http:\/\/www.ebay.com\/itm\/2016-Enhancement-Pro-Mini-5V-adjustable-16M-MEGA328P-Arduino-pro-mini-compatible-\/172483725293"
+                            ],
+                            "paymentMethod": [
+                                "PayPal"
+                            ],
+                            "autoPay": [
+                                "false"
+                            ],
+                            "location": [
+                                "Hong Kong"
+                            ],
+                            "country": [
+                                "HK"
+                            ],
+                            "shippingInfo": [
+                                {
+                                    "shippingServiceCost": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "0.0"
+                                        }
+                                    ],
+                                    "shippingType": [
+                                        "Free"
+                                    ],
+                                    "shipToLocations": [
+                                        "Worldwide"
+                                    ],
+                                    "expeditedShipping": [
+                                        "false"
+                                    ],
+                                    "oneDayShippingAvailable": [
+                                        "false"
+                                    ],
+                                    "handlingTime": [
+                                        "1"
+                                    ]
+                                }
+                            ],
+                            "sellingStatus": [
+                                {
+                                    "currentPrice": [
+                                        {
+                                            "@currencyId": "CAD",
+                                            "__value__": "2.75"
+                                        }
+                                    ],
+                                    "convertedCurrentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "2.05"
+                                        }
+                                    ],
+                                    "sellingState": [
+                                        "Active"
+                                    ],
+                                    "timeLeft": [
+                                        "P6DT19H18M19S"
+                                    ]
+                                }
+                            ],
+                            "listingInfo": [
+                                {
+                                    "bestOfferEnabled": [
+                                        "false"
+                                    ],
+                                    "buyItNowAvailable": [
+                                        "false"
+                                    ],
+                                    "startTime": [
+                                        "2017-01-12T08:24:26.000Z"
+                                    ],
+                                    "endTime": [
+                                        "2017-03-13T08:24:26.000Z"
+                                    ],
+                                    "listingType": [
+                                        "FixedPrice"
+                                    ],
+                                    "gift": [
+                                        "false"
+                                    ]
+                                }
+                            ],
+                            "returnsAccepted": [
+                                "true"
+                            ],
+                            "condition": [
+                                {
+                                    "conditionId": [
+                                        "1000"
+                                    ],
+                                    "conditionDisplayName": [
+                                        "New"
+                                    ]
+                                }
+                            ],
+                            "isMultiVariationListing": [
+                                "false"
+                            ],
+                            "topRatedListing": [
+                                "false"
+                            ]
+                        },
+                        {
+                            "itemId": [
+                                "361881312310"
+                            ],
+                            "title": [
+                                "2017 Enhancement Pro Mini 5V adjustable 16M MEGA328P Arduino pro mini compatible"
+                            ],
+                            "globalId": [
+                                "EBAY-ENCA"
+                            ],
+                            "primaryCategory": [
+                                {
+                                    "categoryId": [
+                                        "175745"
+                                    ],
+                                    "categoryName": [
+                                        "Other Gadgets"
+                                    ]
+                                }
+                            ],
+                            "galleryURL": [
+                                "http:\/\/thumbs3.ebaystatic.com\/m\/mrq03gafSggLOhCSjV4JfNw\/140.jpg"
+                            ],
+                            "viewItemURL": [
+                                "http:\/\/www.ebay.com\/itm\/2017-Enhancement-Pro-Mini-5V-adjustable-16M-MEGA328P-Arduino-pro-mini-compatible-\/361881312310"
+                            ],
+                            "paymentMethod": [
+                                "PayPal"
+                            ],
+                            "autoPay": [
+                                "true"
+                            ],
+                            "location": [
+                                "Hong Kong"
+                            ],
+                            "country": [
+                                "HK"
+                            ],
+                            "shippingInfo": [
+                                {
+                                    "shippingServiceCost": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "0.0"
+                                        }
+                                    ],
+                                    "shippingType": [
+                                        "Free"
+                                    ],
+                                    "shipToLocations": [
+                                        "Worldwide"
+                                    ],
+                                    "expeditedShipping": [
+                                        "false"
+                                    ],
+                                    "oneDayShippingAvailable": [
+                                        "false"
+                                    ],
+                                    "handlingTime": [
+                                        "1"
+                                    ]
+                                }
+                            ],
+                            "sellingStatus": [
+                                {
+                                    "currentPrice": [
+                                        {
+                                            "@currencyId": "CAD",
+                                            "__value__": "2.75"
+                                        }
+                                    ],
+                                    "convertedCurrentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "2.05"
+                                        }
+                                    ],
+                                    "sellingState": [
+                                        "Active"
+                                    ],
+                                    "timeLeft": [
+                                        "P10DT17H30M30S"
+                                    ]
+                                }
+                            ],
+                            "listingInfo": [
+                                {
+                                    "bestOfferEnabled": [
+                                        "false"
+                                    ],
+                                    "buyItNowAvailable": [
+                                        "false"
+                                    ],
+                                    "startTime": [
+                                        "2017-01-16T06:36:37.000Z"
+                                    ],
+                                    "endTime": [
+                                        "2017-03-17T06:36:37.000Z"
+                                    ],
+                                    "listingType": [
+                                        "FixedPrice"
+                                    ],
+                                    "gift": [
+                                        "false"
+                                    ]
+                                }
+                            ],
+                            "returnsAccepted": [
+                                "true"
+                            ],
+                            "condition": [
+                                {
+                                    "conditionId": [
+                                        "1000"
+                                    ],
+                                    "conditionDisplayName": [
+                                        "New"
+                                    ]
+                                }
+                            ],
+                            "isMultiVariationListing": [
+                                "false"
+                            ],
+                            "topRatedListing": [
+                                "false"
+                            ]
+                        },
+                        {
+                            "itemId": [
+                                "122149470197"
+                            ],
+                            "title": [
+                                "New Mini ATMEAG328 3.3V 16Mhz Replace ATmega128 For Arduino Pro Mini Compatible"
+                            ],
+                            "globalId": [
+                                "EBAY-US"
+                            ],
+                            "primaryCategory": [
+                                {
+                                    "categoryId": [
+                                        "175745"
+                                    ],
+                                    "categoryName": [
+                                        "Other Gadgets"
+                                    ]
+                                }
+                            ],
+                            "galleryURL": [
+                                "http:\/\/thumbs2.ebaystatic.com\/m\/m-LM5e0k2LvwzCUFm1ZT38Q\/140.jpg"
+                            ],
+                            "viewItemURL": [
+                                "http:\/\/www.ebay.com\/itm\/New-Mini-ATMEAG328-3-3V-16Mhz-Replace-ATmega128-Arduino-Pro-Mini-Compatible-\/122149470197"
+                            ],
+                            "paymentMethod": [
+                                "PayPal"
+                            ],
+                            "autoPay": [
+                                "false"
+                            ],
+                            "location": [
+                                "Hong Kong"
+                            ],
+                            "country": [
+                                "HK"
+                            ],
+                            "shippingInfo": [
+                                {
+                                    "shippingServiceCost": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "0.0"
+                                        }
+                                    ],
+                                    "shippingType": [
+                                        "Free"
+                                    ],
+                                    "shipToLocations": [
+                                        "Worldwide"
+                                    ],
+                                    "expeditedShipping": [
+                                        "false"
+                                    ],
+                                    "oneDayShippingAvailable": [
+                                        "false"
+                                    ],
+                                    "handlingTime": [
+                                        "1"
+                                    ]
+                                }
+                            ],
+                            "sellingStatus": [
+                                {
+                                    "currentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "2.05"
+                                        }
+                                    ],
+                                    "convertedCurrentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "2.05"
+                                        }
+                                    ],
+                                    "sellingState": [
+                                        "Active"
+                                    ],
+                                    "timeLeft": [
+                                        "P16DT18H11M31S"
+                                    ]
+                                }
+                            ],
+                            "listingInfo": [
+                                {
+                                    "bestOfferEnabled": [
+                                        "false"
+                                    ],
+                                    "buyItNowAvailable": [
+                                        "false"
+                                    ],
+                                    "startTime": [
+                                        "2016-09-24T07:17:38.000Z"
+                                    ],
+                                    "endTime": [
+                                        "2017-03-23T07:17:38.000Z"
+                                    ],
+                                    "listingType": [
+                                        "FixedPrice"
+                                    ],
+                                    "gift": [
+                                        "false"
+                                    ]
+                                }
+                            ],
+                            "returnsAccepted": [
+                                "true"
+                            ],
+                            "condition": [
+                                {
+                                    "conditionId": [
+                                        "1000"
+                                    ],
+                                    "conditionDisplayName": [
+                                        "New"
+                                    ]
+                                }
+                            ],
+                            "isMultiVariationListing": [
+                                "false"
+                            ],
+                            "topRatedListing": [
+                                "false"
+                            ]
+                        },
+                        {
+                            "itemId": [
+                                "331899967122"
+                            ],
+                            "title": [
+                                "Compatible Mini Arduino Pro atmega328 Board NEW M43 2016 Nano 5V 16M Fashion"
+                            ],
+                            "globalId": [
+                                "EBAY-US"
+                            ],
+                            "primaryCategory": [
+                                {
+                                    "categoryId": [
+                                        "58293"
+                                    ],
+                                    "categoryName": [
+                                        "PCB Assembly Equipment"
+                                    ]
+                                }
+                            ],
+                            "galleryURL": [
+                                "http:\/\/thumbs3.ebaystatic.com\/m\/mFxKNhZh13GxOx6CVOE4SbQ\/140.jpg"
+                            ],
+                            "viewItemURL": [
+                                "http:\/\/www.ebay.com\/itm\/Compatible-Mini-Arduino-Pro-atmega328-Board-NEW-M43-2016-Nano-5V-16M-Fashion-\/331899967122"
+                            ],
+                            "paymentMethod": [
+                                "PayPal"
+                            ],
+                            "autoPay": [
+                                "false"
+                            ],
+                            "location": [
+                                "China"
+                            ],
+                            "country": [
+                                "CN"
+                            ],
+                            "shippingInfo": [
+                                {
+                                    "shippingServiceCost": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "0.0"
+                                        }
+                                    ],
+                                    "shippingType": [
+                                        "Free"
+                                    ],
+                                    "shipToLocations": [
+                                        "AU",
+                                        "Americas",
+                                        "Europe",
+                                        "Asia"
+                                    ],
+                                    "expeditedShipping": [
+                                        "false"
+                                    ],
+                                    "oneDayShippingAvailable": [
+                                        "false"
+                                    ],
+                                    "handlingTime": [
+                                        "1"
+                                    ]
+                                }
+                            ],
+                            "sellingStatus": [
+                                {
+                                    "currentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "2.08"
+                                        }
+                                    ],
+                                    "convertedCurrentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "2.08"
+                                        }
+                                    ],
+                                    "sellingState": [
+                                        "Active"
+                                    ],
+                                    "timeLeft": [
+                                        "P24DT19H2M34S"
+                                    ]
+                                }
+                            ],
+                            "listingInfo": [
+                                {
+                                    "bestOfferEnabled": [
+                                        "false"
+                                    ],
+                                    "buyItNowAvailable": [
+                                        "false"
+                                    ],
+                                    "startTime": [
+                                        "2016-07-04T08:08:41.000Z"
+                                    ],
+                                    "endTime": [
+                                        "2017-03-31T08:08:41.000Z"
+                                    ],
+                                    "listingType": [
+                                        "FixedPrice"
+                                    ],
+                                    "gift": [
+                                        "false"
+                                    ]
+                                }
+                            ],
+                            "returnsAccepted": [
+                                "true"
+                            ],
+                            "condition": [
+                                {
+                                    "conditionId": [
+                                        "1000"
+                                    ],
+                                    "conditionDisplayName": [
+                                        "New"
+                                    ]
+                                }
+                            ],
+                            "isMultiVariationListing": [
+                                "false"
+                            ],
+                            "topRatedListing": [
+                                "false"
+                            ]
+                        },
+                        {
+                            "itemId": [
+                                "272081659240"
+                            ],
+                            "title": [
+                                "16Mhz ATMEAG328 5V Replace ATmega128 Module For Arduino Pro Mini Compatible"
+                            ],
+                            "globalId": [
+                                "EBAY-US"
+                            ],
+                            "primaryCategory": [
+                                {
+                                    "categoryId": [
+                                        "175745"
+                                    ],
+                                    "categoryName": [
+                                        "Other Gadgets"
+                                    ]
+                                }
+                            ],
+                            "galleryURL": [
+                                "http:\/\/thumbs1.ebaystatic.com\/m\/mrq03gafSggLOhCSjV4JfNw\/140.jpg"
+                            ],
+                            "viewItemURL": [
+                                "http:\/\/www.ebay.com\/itm\/16Mhz-ATMEAG328-5V-Replace-ATmega128-Module-Arduino-Pro-Mini-Compatible-\/272081659240"
+                            ],
+                            "paymentMethod": [
+                                "PayPal"
+                            ],
+                            "autoPay": [
+                                "false"
+                            ],
+                            "location": [
+                                "Hong Kong"
+                            ],
+                            "country": [
+                                "HK"
+                            ],
+                            "shippingInfo": [
+                                {
+                                    "shippingServiceCost": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "1.1"
+                                        }
+                                    ],
+                                    "shippingType": [
+                                        "Flat"
+                                    ],
+                                    "shipToLocations": [
+                                        "Worldwide"
+                                    ],
+                                    "expeditedShipping": [
+                                        "false"
+                                    ],
+                                    "oneDayShippingAvailable": [
+                                        "false"
+                                    ],
+                                    "handlingTime": [
+                                        "1"
+                                    ]
+                                }
+                            ],
+                            "sellingStatus": [
+                                {
+                                    "currentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "0.99"
+                                        }
+                                    ],
+                                    "convertedCurrentPrice": [
+                                        {
+                                            "@currencyId": "USD",
+                                            "__value__": "0.99"
+                                        }
+                                    ],
+                                    "sellingState": [
+                                        "Active"
+                                    ],
+                                    "timeLeft": [
+                                        "P6DT14H6M37S"
+                                    ]
+                                }
+                            ],
+                            "listingInfo": [
+                                {
+                                    "bestOfferEnabled": [
+                                        "false"
+                                    ],
+                                    "buyItNowAvailable": [
+                                        "false"
+                                    ],
+                                    "startTime": [
+                                        "2015-12-19T03:12:44.000Z"
+                                    ],
+                                    "endTime": [
+                                        "2017-03-13T03:12:44.000Z"
+                                    ],
+                                    "listingType": [
+                                        "FixedPrice"
+                                    ],
+                                    "gift": [
+                                        "false"
+                                    ]
+                                }
+                            ],
+                            "returnsAccepted": [
+                                "true"
+                            ],
+                            "condition": [
+                                {
+                                    "conditionId": [
+                                        "1000"
+                                    ],
+                                    "conditionDisplayName": [
+                                        "New"
+                                    ]
+                                }
+                            ],
+                            "isMultiVariationListing": [
+                                "false"
+                            ],
+                            "topRatedListing": [
+                                "false"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "paginationOutput": [
+                {
+                    "pageNumber": [
+                        "1"
+                    ],
+                    "entriesPerPage": [
+                        "10"
+                    ],
+                    "totalPages": [
+                        "40"
+                    ],
+                    "totalEntries": [
+                        "394"
+                    ]
+                }
+            ],
+            "itemSearchURL": [
+                "http:\/\/www.ebay.com\/sch\/i.html?LH_BIN=1&LH_ItemCondition=1&_nkw=arduino+pro+mini&_ddo=1&_ipg=10&_pgn=1&_sop=15"
+            ]
+        }
+    ]
+}

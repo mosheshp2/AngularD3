@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+    <title>eBay Accurate search</title>
+    <style>
+      div { padding: 0; margin: 0;}
+      table {display: inline-block; }
+      table td.w300 { width: 300px;}
+      table td.w400 { width: 400px;}
+      #results {width:50%; display: inline-block; vertical-align: top; border: 1px solid darkslategray;}
+      #myFrame {width:48%; display: inline-block; vertical-align: top; border: 1px solid darkslategray;}
+    </style>
+</head>
+<body>
+    <div id="criteria">
+        <select id="selType" onchange="ebay.onchange(this);">
+            <option id="1">1</option>
+            <option id="2">2</option>
+            <option id="3">3</option>
+        </select>
+        <input type="text" id="txtSearch" />
+        <input type="button" onclick="ebay.Search();" value="Search" />
+    </div>
+    <div id="results">
+        No search yet
+    </div>
+    <div id="myFrame">
+        No ebay Html yet
+    </div>
+    <script src="public/jquery-2.1.4.min.js"></script>
+    <script>
+        var ebay = {
+            _usageCounter: 0,
+            onchange: function(selType){
+                var text = 'arduino+pro+mini';
+                if($(selType).val() == 3){
+                    text = '220v+led+light+10w';
+                }
+                $("#txtSearch").val(text);
+            },
+            Search: function(){
+                ebay._usageCounter++;
+                var type = $('#selType').val();
+                var url = 'public/ebayResults' + type + '.json';
+                $.get(url, {}, ebay.parseResults, 'json');
+                ebay.iframe.start($("#txtSearch").val());
+            },
+            iframe: {
+                start: function(url){
+                    url = url || 'arduino+pro+mini';//220v+led+light+10w'; // 'http://www.ebay.com/sch/i.html?_from=R40&_sacat=0&LH_BIN=1&_nkw=220v+led+light+10w&_sop=15';
+                    url = url.replace(' ', '+');
+                    $.get('search/' + url,{},ebay.iframe.loaded, 'text');
+                    
+                },
+                loaded: function(data){
+                    //$('#myFrame').html(data).show();
+                    var html = $.parseHTML(data);
+                    var items = [];
+                    $(html).find("li.lvresult").each(function(ind, liItem){
+                        var li = $(liItem);
+                        var itemId = li.attr('listingid');
+                        var itemUrl = li.find(".lvpicinner a.img").attr('href');
+                        var imageUrl = li.find(".lvpicinner a.img img.img").attr('src');
+                        var title = li.find(".lvpicinner a.img img.img").attr('alt');
+                        var priceStr = li.find(".lvprices .lvprice SPAN:first").text();
+                        var shipStr = li.find(".lvshipping .ship SPAN:first").text();
+                        items.push({
+                            itemId: itemId,
+                            itemUrl: itemUrl,
+                            imageUrl: imageUrl,
+                            title: title,
+                            priceStr: priceStr,
+                            shipStr: shipStr
+                        });    
+                    });
+
+                    html = ebay.getTableHtml(items,ebay.colsFormatter, ['itemUrl']);
+                    $('#myFrame').html(html);
+                    
+                }
+            },
+        
+            parseResults: function(result){
+                var res = result && result.findItemsByKeywordsResponse && result.findItemsByKeywordsResponse.length > 0 && result.findItemsByKeywordsResponse[0];
+                if(res){
+                    var ack = res.ack && res.ack.length > 0 && res.ack[0];
+                    if(ack === 'Success'){
+                        var items = res.searchResult[0].item.map(function(item){
+                            return {
+                                id: item.itemId[0],
+                                title: item.title[0],
+                                globalId: item.globalId[0],
+                                img: item.galleryURL[0],
+                                url: item.viewItemURL[0],
+                                location: item.location[0],
+                                ship: item.shippingInfo[0],
+                                sell: item.sellingStatus[0].convertedCurrentPrice[0],
+                                isVariant: item.isMultiVariationListing[0] === 'true'
+                            };
+                        });
+                        
+                        ebay.resultHtml(`${result.keywords} .<br /> result count: ${res.paginationOutput[0].totalEntries[0]}<br/>` + ebay.getTableHtml(items, ebay.colsFormatter));
+                    }
+                    else{
+                        ebay.result('No ack received: ' + ack);    
+                    }
+                }
+                else{
+                    ebay.result('No results found');
+                }
+            },
+
+            result: function(text){
+                $('#results').text(text + ' count: ' + ebay._usageCounter);
+            },
+            resultHtml: function(text){
+                $('#results').html(text);
+            },
+            colsFormatter: {
+                'img': function(cell, row){
+                    return `<a href="${row.url}" target="_blank"><img src="${row.img}" /></a>`;
+                },
+                'sell': function(cell, row) {
+                    var ship = row.ship.shippingType[0] === 'Free' ? '' : ' ship:' + row.ship.shippingServiceCost[0]['__value__'];
+                    var res = row.sell['__value__'];
+                    res += row.sell['@currencyId'] === 'USD' ? '$' : row.sell['@currencyId'];
+                    res += ship;
+                    return res;
+                },
+                imageUrl: function(cell, row){
+                    if(row.imageUrl.indexOf('ebaystatic.com/pictures/') > 0 && row.imageUrl.indexOf('pics/s_1x2.gif') > 0){//http://ir.ebaystatic.com/pictures/aw/pics/s_1x2.gif
+                        
+                        
+                        var folderInd = row.itemUrl.indexOf(':', row.itemUrl.indexOf('hash'));
+                        var folderLet = row.itemUrl.substr(folderInd + 1, 1);
+                        var hash = row.itemUrl.substr(folderInd + 3);
+                        row.imageUrl = `http://thumbs.ebaystatic.com/images/${folderLet}/${hash}/s-l225.jpg`;
+                    }
+                    return `<a href="${row.itemUrl}" target="_blank"><img src="${row.imageUrl}" /></a>`;
+                }
+            },
+            getTableHtml: function(items, colsFormatter, excludeCols){
+                var html = '';
+                if(items && items.length > 0){
+                    excludeCols = excludeCols || ['id', 'ship', 'url'];
+        
+                    html = '<table><thead><tr>';
+        
+                    var keys = Object.keys(items[0]);
+                    for (var key in keys) {
+                        if(excludeCols.indexOf(keys[key]) === -1) {
+                            html += '<th>' + keys[key] + '</th>';
+                        }
+                    }
+                    html += '</tr></thead><tbody>';
+                    for (var rowInd in items){
+                        var row = items[rowInd];
+                        html += '<tr>';
+                        for(var keyInd in keys) {
+                            var key = keys[keyInd];
+                            if(excludeCols.indexOf(key) == -1) {
+                                if(colsFormatter[key] != null) {
+                                    html += '<td>' + colsFormatter[key](row[key], row) + '</td>';
+                                }
+                                else {
+                                    html += '<td>' + row[key] + '</td>';
+                                }
+                            }
+                        }
+                        html += '</tr>';
+                    }
+                    html += '</tbody></table>';
+                }
+                return html;
+            }
+        };
+    </script>
+</body>
+</html>
