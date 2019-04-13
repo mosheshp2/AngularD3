@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+    <title>HiredScore candidates list </title>
+
+    <style>
+        .candidate {
+            display: flex;
+            flex-flow: column;
+            border: 1px solid gray;
+            padding: 16px;
+            height: 140px;
+            overflow: hidden;
+        }
+        .candidate span {
+            font-weight: bold;
+        }
+        .can-details {
+            display: flex;
+            flex-flow: row;
+            width: 400px;
+            justify-content: space-between;
+        }
+        .can-details img {
+            height: 120px;
+
+        }
+        .list {
+            flex-flow: column;
+            justify-content: space-between;
+        }
+        .list .experience-item {
+            height:45px;
+        }
+        .list .experience-item b {
+            width: 205px;
+            overflow: hidden;
+        }
+        .hide {display: none;}
+       
+        
+        div.list.show-all:nth-child(1),div.list.show-all:nth-child(2)  {
+            display: block;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div id="candidates">
+    </div>
+    <script> 
+        function getCandidate(){
+            $('#candidates').html('loading...');
+
+            $.get('/data', function(data){
+                var outputHtml = '';
+                data.forEach(candidate => {
+                    outputHtml += 
+                        `<div class="candidate">
+                            <span>${candidate.candidate_name}</span>
+                            <div class="can-details">
+                                <img src="${candidate.image}" />
+                                <div class="list show-all">`;
+
+                    candidate.experience.forEach((exp , i) => {
+                        outputHtml += `<div class="experience-item ${i > 1 ?'hide': ''}">
+                                            <div>Worked as: <b> ${exp.job_title} </b> </div>
+                                            <div class="experience-dates">from ${exp.start_date} to ${exp.end_date}</div>                    
+                                        </div>`;
+                    });
+                    
+                    outputHtml +=   `<div class="exp-more">
+                                        <a href="javascript:void(0);">See all ()</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+
+                });       
+                
+                $('#candidates').html(outputHtml);
+
+            }, 'json');
+        }
+
+        $(getCandidate);
+    </script>
+</body>
